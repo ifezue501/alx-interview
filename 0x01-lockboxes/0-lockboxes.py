@@ -1,22 +1,17 @@
 #!/usr/bin/python3
+"""A method that determines if all the boxes can be opened."""
+
 
 def canUnlockAll(boxes):
-    # Initialize a set to keep track of the keys we have
-    keys = set([0])
+    """This function will take a list of lists and the content
+       of a list will unlock other lists
+    """
 
-    # Initialize a set to keep track of the boxes we can visit
-    visited_boxes = set()
-
-    # Perform a depth-first search to find all reachable boxes
-    def dfs(box_num):
-        visited_boxes.add(box_num)
-        for key in boxes[box_num]:
-            if key not in visited_boxes:
-                keys.add(key)
-                dfs(key)
-
-    # Start the DFS from the first box (box 0)
-    dfs(0)
-
-    # Check if we have visited all boxes
-    return len(visited_boxes) == len(boxes)
+    keys = [0]
+    for key in keys:
+        for boxKey in boxes[key]:
+            if boxKey not in keys and boxKey < len(boxes):
+                keys.append(boxKey)
+    if len(keys) == len(boxes):
+        return True
+    return False
