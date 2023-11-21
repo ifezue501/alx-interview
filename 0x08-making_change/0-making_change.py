@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/python
 """A function to determine the fewest number of coins needed
    to meet a given amount total"""
 
